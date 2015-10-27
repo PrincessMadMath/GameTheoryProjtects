@@ -27,8 +27,8 @@ namespace MiniMax
         foreach (var node in root.ChildrenNodes)
         {
           // The next turn is the adversary turn
-          int nodeValue = MiniMaxAlgo(node, player, false);
-
+          int nodeValue = MiniMaxAlgo(node, player, true);
+          Console.WriteLine("{0} --> {1}", node.Pair.Move.GetDescription(), nodeValue);
           if (nodeValue > currentBestValue)
           {
             currentBestValue = nodeValue;

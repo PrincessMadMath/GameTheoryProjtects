@@ -16,10 +16,10 @@ namespace TicTacToe.TicTacToeGameElement
       GameState = new TicTacTocState(size);
 
       var tokenX = new Token(0, 'X');
-      PlayerA = new HumanPlayer(tokenX, 1);
+      PlayerB = new HumanPlayer(tokenX, 1);
 
       var tokenY = new Token(1, 'Y');
-      PlayerB = new IAPlayer(tokenY, 1);
+      PlayerA = new IAPlayer(tokenY, 1);
     }
 
     public void Play()
