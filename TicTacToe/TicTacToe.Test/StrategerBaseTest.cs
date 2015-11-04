@@ -19,10 +19,10 @@ namespace TicTacToe.Test
             var state = new TicTacTocState(3);
 
             IToken tokenY = new Token(2, 'Y');
-            IPlayer player = new IAPlayer(tokenY, 2);
+            ITeamIdentifier player = new IAPlayer(tokenY, 2);
 
             IToken tokenX = new Token(1, 'X');
-            IPlayer opponent = new IAPlayer(tokenX, 1);
+            ITeamIdentifier opponent = new IAPlayer(tokenX, 1);
 
             var solver = GetStrateger();
 
@@ -95,10 +95,10 @@ namespace TicTacToe.Test
             var state = new TicTacTocState(3);
 
             IToken tokenY = new Token(2, 'Y');
-            IPlayer player = new IAPlayer(tokenY, 2);
+            ITeamIdentifier player = new IAPlayer(tokenY, 2);
 
             IToken tokenX = new Token(1, 'X');
-            IPlayer opponent = new IAPlayer(tokenX, 1);
+            ITeamIdentifier opponent = new IAPlayer(tokenX, 1);
 
             var solver = GetStrateger();
 
@@ -156,10 +156,10 @@ namespace TicTacToe.Test
             var state = new TicTacTocState(3);
 
             IToken tokenY = new Token(2, 'Y');
-            IPlayer player = new IAPlayer(tokenY, 2);
+            ITeamIdentifier player = new IAPlayer(tokenY, 2);
 
             IToken tokenX = new Token(1, 'X');
-            IPlayer opponent = new IAPlayer(tokenX, 2);
+            ITeamIdentifier opponent = new IAPlayer(tokenX, 2);
 
             var solver = GetStrateger();
 

@@ -3,7 +3,7 @@
   /// <summary>
   /// Represent a participant of a game
   /// </summary>
-  public interface IPlayer
+  public interface ITeamIdentifier
   {
     int Team { get; set; }
   }

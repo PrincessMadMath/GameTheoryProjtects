@@ -40,8 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameElement\GameBoard.cs" />
+    <Compile Include="GameElement\GameInfo2P.cs" />
+    <Compile Include="GameElement\GameManager2P.cs" />
+    <Compile Include="GameElement\IAPlayer.cs" />
     <Compile Include="GameElement\Node.cs" />
     <Compile Include="GameElement\Token.cs" />
+    <Compile Include="Interface\IGame.cs" />
+    <Compile Include="Interface\IGameInfo.cs" />
+    <Compile Include="Interface\IState.cs" />
+    <Compile Include="Interface\IPlayer.cs" />
     <Compile Include="Interface\IToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utils.cs" />

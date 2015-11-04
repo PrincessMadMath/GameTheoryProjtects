@@ -6,19 +6,19 @@ namespace GameSolver.Algo
 {
     public class MiniMaxSolver : INodeSolver
     {
-        public int CalculateNodeValue(Node root, IPlayer player, IPlayer opponentPlayer, bool isAdversaryTurn, int depth)
+        public int CalculateNodeValue(Node root, ITeamIdentifier player, ITeamIdentifier opponentPlayer, bool isAdversaryTurn, int depth)
         {
             return MiniMaxAlgo(root, player,opponentPlayer, true);
         }
 
-        private int MiniMaxAlgo(Node root, IPlayer player, IPlayer opponentPlayer, bool isAdversaryTurn)
+        private int MiniMaxAlgo(Node root, ITeamIdentifier player, ITeamIdentifier opponentPlayer, bool isAdversaryTurn)
         {
-            IPlayer playingPlayer = isAdversaryTurn ? opponentPlayer : player;
-            IPlayer otherPlayer = !isAdversaryTurn ? opponentPlayer : player;
+            ITeamIdentifier playingPlayer = isAdversaryTurn ? opponentPlayer : player;
+            ITeamIdentifier otherPlayer = !isAdversaryTurn ? opponentPlayer : player;
             Helper.PopulateTree(root, playingPlayer, otherPlayer, 1);
-            if (root.Combinaison.NextState.IsGameOver() || !root.ChildrenNodes.Any())
+            if (root.Combinaison.NextResolvableState.IsGameOver() || !root.ChildrenNodes.Any())
             {
-                return root.Combinaison.NextState.GetValueFor(player);
+                return root.Combinaison.NextResolvableState.GetValueFor(player);
             }
 
             int bestCurrentValueForCurrentPlayerTurn = isAdversaryTurn ? int.MaxValue : int.MinValue;

@@ -1,7 +1,6 @@
 ﻿using System;
-using TicTacToe.TicTacToeGameElement;
 
-namespace TicTacToe
+namespace GameStarter
 {
     class Program
     {
@@ -10,8 +9,9 @@ namespace TicTacToe
             while (true)
             {
                 Console.WriteLine("*********** Nouvelle partie *************");
-                var game = new TicTacToeGame(3);
+                var game = GameFactory.GetGame(GameFactory.GameType.TicTacToe);
                 game.Play();
+
                 Console.WriteLine("Commencer nouvelle partie (y/n)");
                 string c = Console.ReadLine();
                 if (c.ToLower() != "y")
@@ -19,7 +19,6 @@ namespace TicTacToe
                     break;
                 }
             }
-
         }
     }
 }

@@ -128,10 +128,10 @@ namespace TicTacToe.Test
             Assert.IsFalse(state.IsGameOver());
 
             IToken tokenX = new Token(1, 'X');
-            IPlayer opponent = new IAPlayer(tokenX, 1);
+            ITeamIdentifier opponent = new IAPlayer(tokenX, 1);
 
             IToken tokenO = new Token(2, 'O');
-            IPlayer player = new IAPlayer(tokenO, 2);
+            ITeamIdentifier player = new IAPlayer(tokenO, 2);
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -180,7 +180,7 @@ namespace TicTacToe.Test
             Assert.IsFalse(state.IsGameOver());
 
             IToken token = new Token(1, 'X');
-            IPlayer player = new HumanPlayer(token, 1);
+            ITeamIdentifier player = new HumanPlayer(token, 1);
 
             var list = state.GetPossibleStates(player);
 

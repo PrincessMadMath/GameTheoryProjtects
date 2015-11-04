@@ -5,15 +5,15 @@ namespace GameSolver.Component
   /// <summary>
   /// Represent a state of a game
   /// </summary>
-  public interface IState
+  public interface IResolvableState
   {
     /// <summary>
     /// 
     /// </summary>
     bool IsGameOver();
-    int GetValueFor(IPlayer player);
-    IState Copy();
+    int GetValueFor(ITeamIdentifier player);
+    IResolvableState Copy();
 
-    List<MoveStateCombinaison> GetPossibleStates(IPlayer player);
+    List<MoveStateCombinaison> GetPossibleStates(ITeamIdentifier player);
   }
 }

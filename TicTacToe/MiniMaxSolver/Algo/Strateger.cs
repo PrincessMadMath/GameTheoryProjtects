@@ -9,13 +9,23 @@ namespace GameSolver.Algo
         public int Depth { get; set; }
         public INodeSolver NodeSolver { get; set; }
 
-        public IMove FindBestMove(IState state, IPlayer player, IPlayer opponentPlayer)
+        public Strateger()
+        {
+        }
+
+        public Strateger(int depth, INodeSolver solver)
+        {
+            Depth = depth;
+            NodeSolver = solver;
+        }
+
+        public IMove FindBestMove(IResolvableState resolvableState, ITeamIdentifier player, ITeamIdentifier opponentPlayer)
         {
             Node root = new Node()
             {
                 Combinaison = new MoveStateCombinaison()
                 {
-                    NextState = state,
+                    NextResolvableState = resolvableState,
                     Move = null
                 }
             };

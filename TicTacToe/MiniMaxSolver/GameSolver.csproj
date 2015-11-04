@@ -46,8 +46,8 @@
     <Compile Include="Component\MoveStateCombinaison.cs" />
     <Compile Include="Algo\MiniMaxSolver.cs" />
     <Compile Include="Component\IMove.cs" />
-    <Compile Include="Component\IPlayer.cs" />
-    <Compile Include="Component\IState.cs" />
+    <Compile Include="Component\ITeamIdentifier.cs" />
+    <Compile Include="Component\IResolvableState.cs" />
     <Compile Include="Component\Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Algo\Strateger.cs" />
