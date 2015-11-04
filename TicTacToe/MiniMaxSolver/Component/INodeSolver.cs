@@ -1,4 +1,4 @@
-﻿namespace MiniMax.Interface
+﻿namespace GameSolver.Component
 {
     public interface INodeSolver
     {

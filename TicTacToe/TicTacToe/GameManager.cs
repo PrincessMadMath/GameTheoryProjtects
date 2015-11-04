@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using TicTacToe.Interface;
+using GameComponent.GameElement;
+using TicTacToe.Player;
 
 namespace TicTacToe
 {

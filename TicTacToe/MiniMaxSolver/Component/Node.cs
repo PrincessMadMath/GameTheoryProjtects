@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MiniMax
+namespace GameSolver.Component
 {
   /// <summary>
   /// Represent a node for the MiniMax algorithm

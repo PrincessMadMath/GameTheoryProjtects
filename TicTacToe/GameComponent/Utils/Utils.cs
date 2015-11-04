@@ -1,7 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
 
-namespace TicTacToe.Utils
+namespace GameComponent.Utils
 {
   public static class Utils
   {

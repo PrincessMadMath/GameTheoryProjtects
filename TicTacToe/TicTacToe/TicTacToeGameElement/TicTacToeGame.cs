@@ -1,7 +1,8 @@
 ﻿using System;
-using MiniMax;
-using MiniMax.Interface;
-using TicTacToe.Interface;
+using GameComponent.GameElement;
+using GameComponent.Interface;
+using GameSolver;
+using TicTacToe.Player;
 
 namespace TicTacToe.TicTacToeGameElement
 {

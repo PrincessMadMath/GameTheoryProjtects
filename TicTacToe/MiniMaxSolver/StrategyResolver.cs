@@ -1,4 +1,6 @@
-﻿namespace MiniMax
+﻿using GameSolver.Algo;
+
+namespace GameSolver
 {
     public static class StrategyResolver
     {
@@ -7,7 +9,7 @@
             return new Strateger()
             {
                 Depth = 16,
-                NodeSolver = new MiniMaxSolver()
+                NodeSolver = new AlphaBetaPrunning()
             };
         }
     }

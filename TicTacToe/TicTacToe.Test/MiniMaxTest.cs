@@ -1,9 +1,6 @@
 ﻿using System;
-using MiniMax;
-using MiniMax.Interface;
+using GameSolver.Algo;
 using NUnit.Framework;
-using TicTacToe.Interface;
-using TicTacToe.TicTacToeGameElement;
 
 namespace TicTacToe.Test
 {

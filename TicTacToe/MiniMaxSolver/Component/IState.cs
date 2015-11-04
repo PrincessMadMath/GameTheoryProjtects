@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MiniMax.Interface
+namespace GameSolver.Component
 {
   /// <summary>
   /// Represent a state of a game

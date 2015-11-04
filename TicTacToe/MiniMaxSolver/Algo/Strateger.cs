@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using MiniMax.Interface;
+using GameSolver.Component;
 
-namespace MiniMax
+namespace GameSolver.Algo
 {
     public class Strateger : ISolver
     {

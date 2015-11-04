@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace MiniMax.Interface
+﻿namespace GameSolver.Component
 {
   /// <summary>
   /// Represent a Move that can be made on a state in a game context

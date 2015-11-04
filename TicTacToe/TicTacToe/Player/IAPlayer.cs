@@ -1,9 +1,9 @@
-﻿using MiniMax;
-using MiniMax.Interface;
-using TicTacToe.Interface;
+﻿using GameComponent.Interface;
+using GameSolver.Algo;
+using GameSolver.Component;
 using TicTacToe.TicTacToeGameElement;
 
-namespace TicTacToe
+namespace TicTacToe.Player
 {
   public class IAPlayer : ITicTacToePlayer
   {

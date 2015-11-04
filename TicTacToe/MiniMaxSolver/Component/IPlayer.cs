@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace MiniMax.Interface
+﻿namespace GameSolver.Component
 {
   /// <summary>
   /// Represent a participant of a game

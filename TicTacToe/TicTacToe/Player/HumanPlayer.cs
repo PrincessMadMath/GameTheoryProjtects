@@ -1,10 +1,7 @@
-﻿using System;
-using System.Dynamic;
-using TicTacToe.Interface;
+﻿using GameComponent.Interface;
 using TicTacToe.TicTacToeGameElement;
-using TicTacToe.Utils;
 
-namespace TicTacToe
+namespace TicTacToe.Player
 {
   public class HumanPlayer : ITicTacToePlayer
   {
@@ -19,8 +16,8 @@ namespace TicTacToe
 
     public TicTacToeMove GetMove(TicTacToeGame game)
     {
-      int x = Utils.Utils.GetIntFromConsole("Entrer valeur de x:");
-      int y = Utils.Utils.GetIntFromConsole("Entrer valeur de y:");
+      int x = GameComponent.Utils.Utils.GetIntFromConsole("Entrer valeur de x:");
+      int y = GameComponent.Utils.Utils.GetIntFromConsole("Entrer valeur de y:");
       return new TicTacToeMove()
       {
         Token = Token,

@@ -1,8 +1,9 @@
-﻿using System;
-using MiniMax;
-using MiniMax.Interface;
+﻿using GameComponent.GameElement;
+using GameComponent.Interface;
+using GameSolver.Algo;
+using GameSolver.Component;
 using NUnit.Framework;
-using TicTacToe.Interface;
+using TicTacToe.Player;
 using TicTacToe.TicTacToeGameElement;
 
 namespace TicTacToe.Test

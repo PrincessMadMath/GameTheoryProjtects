@@ -1,5 +1,5 @@
-﻿using MiniMax.Interface;
-using TicTacToe.Interface;
+﻿using GameComponent.Interface;
+using GameSolver.Component;
 
 namespace TicTacToe.TicTacToeGameElement
 {

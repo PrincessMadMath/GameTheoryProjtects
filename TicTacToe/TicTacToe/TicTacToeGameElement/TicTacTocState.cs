@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using MiniMax;
-using MiniMax.Interface;
-using TicTacToe.Interface;
+using GameComponent.GameElement;
+using GameComponent.Interface;
+using GameSolver.Component;
+using TicTacToe.Player;
 
 namespace TicTacToe.TicTacToeGameElement
 {

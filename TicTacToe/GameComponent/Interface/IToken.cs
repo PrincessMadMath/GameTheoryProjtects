@@ -1,5 +1,5 @@
 ﻿
-namespace TicTacToe.Interface
+namespace GameComponent.Interface
 {
   public interface IToken
   {

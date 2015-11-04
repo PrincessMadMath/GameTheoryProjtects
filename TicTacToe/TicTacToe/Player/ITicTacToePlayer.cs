@@ -1,8 +1,8 @@
-﻿
-using MiniMax.Interface;
+﻿using GameComponent.Interface;
+using GameSolver.Component;
 using TicTacToe.TicTacToeGameElement;
 
-namespace TicTacToe.Interface
+namespace TicTacToe.Player
 {
   public interface ITicTacToePlayer : IPlayer
   {

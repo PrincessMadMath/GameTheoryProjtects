@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MiniMax.Interface;
 
-namespace MiniMax
+namespace GameSolver.Component
 {
     public static class Helper
     {

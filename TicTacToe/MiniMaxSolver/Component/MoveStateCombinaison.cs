@@ -1,7 +1,4 @@
-﻿using MiniMax.Interface;
-
-
-namespace MiniMax
+﻿namespace GameSolver.Component
 {
   /// <summary>
   /// Represent a pair of the Move necessary to access the NextState

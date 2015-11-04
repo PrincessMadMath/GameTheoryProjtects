@@ -1,6 +1,8 @@
-﻿using TicTacToe.Interface;
+﻿
 
-namespace TicTacToe
+using GameComponent.Interface;
+
+namespace GameComponent.GameElement
 {
   public class Token : IToken
   {

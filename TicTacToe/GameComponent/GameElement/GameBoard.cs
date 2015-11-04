@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Runtime.Serialization;
-using TicTacToe.Interface;
-using TicTacToe.Utils;
+using GameComponent.Interface;
+using GameComponent.Utils;
 
-namespace TicTacToe
+namespace GameComponent.GameElement
 {
   public class GameBoard
   {

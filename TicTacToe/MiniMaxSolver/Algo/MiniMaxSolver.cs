@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using MiniMax.Interface;
+using GameSolver.Component;
 
-
-namespace MiniMax
+namespace GameSolver.Algo
 {
     public class MiniMaxSolver : INodeSolver
     {
