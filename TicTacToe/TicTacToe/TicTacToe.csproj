@@ -56,6 +56,7 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="Interface\ITicTacToePlayer.cs" />
     <Compile Include="Interface\IToken.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="TicTacToeGameElement\TicTacTocState.cs" />
     <Compile Include="TicTacToeGameElement\TicTacToeGame.cs" />
     <Compile Include="TicTacToeGameElement\TicTacToeMove.cs" />

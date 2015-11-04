@@ -1,85 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using MiniMax.Interface;
 
 
 namespace MiniMax
 {
-    public class MiniMaxSolver
+    public class MiniMaxSolver : INodeSolver
     {
-      public IMove CalculateBestMove(IState state, IPlayer player, IPlayer opponentPlayer)
-      {
-        Node root = new Node()
+        public int CalculateNodeValue(Node root, IPlayer player, IPlayer opponentPlayer, bool isAdversaryTurn, int depth)
         {
-          Pair = new MoveNextStatePair()
-          {
-            State = state,
-            Move = null
-          }
-        };
-
-        PopulateTree(root, player, opponentPlayer);
-
-        int currentBestValue = Int32.MinValue;
-        IMove currentBestMove = null;
-
-        foreach (var node in root.ChildrenNodes)
-        {
-          // The next turn is the adversary turn
-          int nodeValue = MiniMaxAlgo(node, player, true);
-          Console.WriteLine("{0} --> {1}", node.Pair.Move.GetDescription(), nodeValue);
-          if (nodeValue > currentBestValue)
-          {
-            currentBestValue = nodeValue;
-            currentBestMove = node.Pair.Move;
-          }
+            return MiniMaxAlgo(root, player,opponentPlayer, true);
         }
 
-        return currentBestMove;
-      }
-
-      private void PopulateTree(Node root, IPlayer playerTurn, IPlayer opponentPlayer)
-      {
-        List<MoveNextStatePair> childrens = root.Pair.State.GetPossibleStates(playerTurn).ToList();
-        root.ChildrenNodes = childrens.Select(children => new Node()
+        private int MiniMaxAlgo(Node root, IPlayer player, IPlayer opponentPlayer, bool isAdversaryTurn)
         {
-          Pair = children
-        }).ToList();
+            IPlayer playingPlayer = isAdversaryTurn ? opponentPlayer : player;
+            IPlayer otherPlayer = !isAdversaryTurn ? opponentPlayer : player;
+            Helper.PopulateTree(root, playingPlayer, otherPlayer, 1);
+            if (root.Combinaison.NextState.IsGameOver() || !root.ChildrenNodes.Any())
+            {
+                return root.Combinaison.NextState.GetValueFor(player);
+            }
 
-        foreach (Node children in root.ChildrenNodes.Where(pair => !pair.Pair.State.IsGameOver))
-        {
-          PopulateTree(children, opponentPlayer, playerTurn);
+            int bestCurrentValueForCurrentPlayerTurn = isAdversaryTurn ? int.MaxValue : int.MinValue;
+
+            foreach (var node in root.ChildrenNodes)
+            {
+                int nodeValue = MiniMaxAlgo(node, player, opponentPlayer, !isAdversaryTurn);
+
+                // Find min
+                if (isAdversaryTurn)
+                {
+                    bestCurrentValueForCurrentPlayerTurn = Math.Min(nodeValue, bestCurrentValueForCurrentPlayerTurn);
+                }
+                // Find max
+                else
+                {
+                    bestCurrentValueForCurrentPlayerTurn = Math.Max(nodeValue, bestCurrentValueForCurrentPlayerTurn);
+                }
+            }
+
+            return bestCurrentValueForCurrentPlayerTurn;
         }
-      }
-
-      private int MiniMaxAlgo(Node root, IPlayer player, bool isAdversaryTurn)
-      {
-        if (root.Pair.State.IsGameOver)
-        {
-          return root.Pair.State.GetValueFor(player);
-        }
-
-        int bestCurrentValueForCurrentPlayerTurn = isAdversaryTurn ? int.MaxValue : int.MinValue;
-
-        foreach (var node in root.ChildrenNodes)
-        {
-          int nodeValue = MiniMaxAlgo(node, player, !isAdversaryTurn);
-
-          // Find min
-          if (isAdversaryTurn)
-          {
-            bestCurrentValueForCurrentPlayerTurn = Math.Min(nodeValue, bestCurrentValueForCurrentPlayerTurn);
-          }
-          // Find max
-          else
-          {
-            bestCurrentValueForCurrentPlayerTurn = Math.Max(nodeValue, bestCurrentValueForCurrentPlayerTurn);
-          }
-        }
-
-        return bestCurrentValueForCurrentPlayerTurn;
-      }
-
     }
 }

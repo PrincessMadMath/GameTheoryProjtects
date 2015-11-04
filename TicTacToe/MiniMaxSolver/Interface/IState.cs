@@ -2,12 +2,18 @@
 
 namespace MiniMax.Interface
 {
+  /// <summary>
+  /// Represent a state of a game
+  /// </summary>
   public interface IState
   {
-    bool IsGameOver { get; }
+    /// <summary>
+    /// 
+    /// </summary>
+    bool IsGameOver();
     int GetValueFor(IPlayer player);
     IState Copy();
 
-    List<MoveNextStatePair> GetPossibleStates(IPlayer player);
+    List<MoveStateCombinaison> GetPossibleStates(IPlayer player);
   }
 }

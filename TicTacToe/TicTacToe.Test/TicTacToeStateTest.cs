@@ -20,7 +20,7 @@ namespace TicTacToe.Test
         public void TestHorizontalWin()
         {
             var state = new TicTacTocState(3);
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             IToken token = new Token(1, 'X');
 
@@ -30,7 +30,7 @@ namespace TicTacToe.Test
                 Y = 0,
                 Token = token
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -38,7 +38,7 @@ namespace TicTacToe.Test
                 Y = 0,
                 Token = token
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -47,14 +47,14 @@ namespace TicTacToe.Test
                 Token = token
             });
 
-            Assert.IsTrue(state.IsGameOver);
+            Assert.IsTrue(state.IsGameOver());
         }
 
         [Test]
         public void TestVerticallWin()
         {
             var state = new TicTacTocState(3);
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             IToken token = new Token(1, 'X');
 
@@ -64,7 +64,7 @@ namespace TicTacToe.Test
                 Y = 0,
                 Token = token
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -72,7 +72,7 @@ namespace TicTacToe.Test
                 Y = 1,
                 Token = token
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -81,14 +81,14 @@ namespace TicTacToe.Test
                 Token = token
             });
 
-            Assert.IsTrue(state.IsGameOver);
+            Assert.IsTrue(state.IsGameOver());
         }
 
         [Test]
         public void TestDiagonale()
         {
             var state = new TicTacTocState(3);
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             IToken token = new Token(1, 'X');
             IToken tokenEnnemy = new Token(2, 'O');
@@ -99,7 +99,7 @@ namespace TicTacToe.Test
                 Y = 0,
                 Token = token
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -107,7 +107,7 @@ namespace TicTacToe.Test
                 Y = 1,
                 Token = token
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -116,14 +116,14 @@ namespace TicTacToe.Test
                 Token = token
             });
 
-            Assert.IsTrue(state.IsGameOver);
+            Assert.IsTrue(state.IsGameOver());
         }
 
         [Test]
         public void TestDiagonaleWithOponent()
         {
             var state = new TicTacTocState(3);
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             IToken tokenX = new Token(1, 'X');
             IPlayer opponent = new IAPlayer(tokenX, 1);
@@ -137,7 +137,7 @@ namespace TicTacToe.Test
                 Y = 0,
                 Token = tokenX
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -145,7 +145,7 @@ namespace TicTacToe.Test
                 Y = 2,
                 Token = tokenX
             });
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             state.PlayMove(new TicTacToeMove()
             {
@@ -166,7 +166,7 @@ namespace TicTacToe.Test
                 Y = 1,
                 Token = tokenX
             });
-            Assert.IsTrue(state.IsGameOver);
+            Assert.IsTrue(state.IsGameOver());
             Assert.AreEqual(1, state.GetValueFor(opponent));
             Assert.AreEqual(-1, state.GetValueFor(player));
         }
@@ -175,7 +175,7 @@ namespace TicTacToe.Test
         public void AccessibleStateTest()
         {
             var state = new TicTacTocState(2);
-            Assert.IsFalse(state.IsGameOver);
+            Assert.IsFalse(state.IsGameOver());
 
             IToken token = new Token(1, 'X');
             IPlayer player = new HumanPlayer(token, 1);

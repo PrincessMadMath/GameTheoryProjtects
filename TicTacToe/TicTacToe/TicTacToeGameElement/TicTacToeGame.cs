@@ -1,4 +1,5 @@
 ﻿using System;
+using MiniMax;
 using MiniMax.Interface;
 using TicTacToe.Interface;
 
@@ -18,15 +19,18 @@ namespace TicTacToe.TicTacToeGameElement
       var tokenX = new Token(0, 'X');
       PlayerB = new HumanPlayer(tokenX, 1);
 
-      var tokenY = new Token(1, 'Y');
-      PlayerA = new IAPlayer(tokenY, 1);
+      var tokenY = new Token(1, 'O');
+      PlayerA = new IAPlayer(tokenY, 1)
+      {
+          Strateger = StrategyResolver.GetStrateger()
+      };
     }
 
     public void Play()
     {
       ITicTacToePlayer currentPlayer = PlayerA;
 
-      while (!GameState.IsGameOver)
+      while (!GameState.IsGameOver())
       {
         GameState.Display();
         bool isMoveValid = false;

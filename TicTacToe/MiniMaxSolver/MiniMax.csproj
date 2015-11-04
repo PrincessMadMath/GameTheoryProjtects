@@ -39,13 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MoveNextStatePair.cs" />
+    <Compile Include="AlphaBetaPrunning.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Interface\INodeSolver.cs" />
+    <Compile Include="Interface\ISolver.cs" />
+    <Compile Include="MoveStateCombinaison.cs" />
     <Compile Include="MiniMaxSolver.cs" />
     <Compile Include="Interface\IMove.cs" />
     <Compile Include="Interface\IPlayer.cs" />
     <Compile Include="Interface\IState.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strateger.cs" />
+    <Compile Include="StrategyResolver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

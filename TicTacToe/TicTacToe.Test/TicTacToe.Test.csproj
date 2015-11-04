@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlphaBeta.cs" />
     <Compile Include="MiniMaxTest.cs" />
+    <Compile Include="StrategerBaseTest.cs" />
     <Compile Include="TicTacToeStateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

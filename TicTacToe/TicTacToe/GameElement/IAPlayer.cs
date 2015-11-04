@@ -9,20 +9,19 @@ namespace TicTacToe
   {
     public int Team { get; set; }
     public IToken Token { get; set; }
-    private MiniMaxSolver _miniMaxSolver;
+    public Strateger Strateger { get; set; }
 
     public IAPlayer(IToken token, int team)
     {
       Token = token;
       Team = team;
-      _miniMaxSolver = new MiniMaxSolver();
     }
 
     public TicTacToeMove GetMove(TicTacToeGame game)
     {
       IPlayer opponentPlayer = game.PlayerA == this ? game.PlayerB : game.PlayerA;
 
-      var bestMove = _miniMaxSolver.CalculateBestMove(game.GameState, this, opponentPlayer) as TicTacToeMove;
+      var bestMove = Strateger.FindBestMove(game.GameState, this, opponentPlayer) as TicTacToeMove;
       return bestMove;
     }
   }
