@@ -4,11 +4,11 @@ namespace GameSolver
 {
     public static class StrategyResolver
     {
-        public static Strateger GetStrateger()
+        public static Strateger GetStrateger(int depth = 5)
         {
             return new Strateger()
             {
-                Depth = 16,
+                Depth = depth,
                 NodeSolver = new AlphaBetaPrunning()
             };
         }

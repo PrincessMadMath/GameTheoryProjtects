@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using GameComponent.GameElement;
 using GameComponent.Interface;
+using GameComponent.Utils;
 using GameSolver.Component;
 
 namespace TicTacToe.TicTacToeGameElement
 {
     public class TicTacTocState : IResolvableState, IState
     {
-        private GameBoard _gameBoard;
+        private IGameBoard _gameBoard;
 
         private int? _winningTeam;
 
         private bool _isGameOver = false;
+
+        public TicTacTocState(IGameBoard gameBoard)
+        {
+            _gameBoard = gameBoard;
+        }
 
         public TicTacTocState(int size)
         {
@@ -175,7 +181,7 @@ namespace TicTacToe.TicTacToeGameElement
             IPlayer tttPlayer = player as IPlayer;
             if (tttPlayer == null)
             {
-                throw new ArgumentException("Receive a not TicTacToePlayer");
+                throw new ArgumentException("Not a team player");
             }
 
             List<MoveStateCombinaison> list = new List<MoveStateCombinaison>();
@@ -218,20 +224,13 @@ namespace TicTacToe.TicTacToeGameElement
 
         public IResolvableState Copy()
         {
-            var copy = new TicTacTocState(_gameBoard.BoardHeight);
-            for (int i = 0; i < _gameBoard.BoardHeight; i++)
-            {
-                for (int j = 0; j < _gameBoard.BoardWidth; j++)
-                {
-                    copy._gameBoard.TryAddToken(i, j, _gameBoard.GetToken(i, j));
-                }
-            }
-            return copy;
+            var copy = _gameBoard.Copy();
+            return new TicTacTocState(copy);
         }
 
         public void Display()
         {
-            _gameBoard.Display();
+            BoardDisplayer.Display(_gameBoard);
         }
 
     }

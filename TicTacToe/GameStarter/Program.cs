@@ -9,7 +9,7 @@ namespace GameStarter
             while (true)
             {
                 Console.WriteLine("*********** Nouvelle partie *************");
-                var game = GameFactory.GetGame(GameFactory.GameType.TicTacToe);
+                var game = GameFactory.GetGame(GameFactory.GameType.Connect4);
                 game.Play();
 
                 Console.WriteLine("Commencer nouvelle partie (y/n)");

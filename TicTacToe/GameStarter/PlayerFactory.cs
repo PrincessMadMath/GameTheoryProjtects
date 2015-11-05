@@ -1,10 +1,8 @@
-﻿using System;
-using GameComponent.GameElement;
+﻿using GameComponent.GameElement;
 using GameComponent.Interface;
 using GameSolver;
-using GameSolver.Algo;
 using TicTacToe.Player;
-using TicTacToe.TicTacToeGameElement;
+
 
 namespace GameStarter
 {
@@ -21,18 +19,24 @@ namespace GameStarter
                     player = new HumanPlayer(new Token(team, 'X'), team);
 
                     break;
+
+                case GameFactory.GameType.Connect4:
+
+                    player = new Connect4.Player.HumanPlayer(new Token(team, 'X'), team);
+
+                    break;
             }
 
             return player;
         }
 
-        public static IPlayer GetAiPlayer(GameFactory.GameType gameType, int team)
+        public static IPlayer GetAiPlayer(GameFactory.GameType gameType, int team, int depth)
         {
             IPlayer player = null;
 
             player = new IAPlayer(new Token(team, 'O'), team)
             {
-                Strateger = StrategyResolver.GetStrateger()
+                Strateger = StrategyResolver.GetStrateger(depth)
             };
 
             return player;

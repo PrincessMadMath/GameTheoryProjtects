@@ -39,14 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="GameElement\Connect4Game.cs" />
     <Compile Include="GameElement\Connect4Move.cs" />
     <Compile Include="GameElement\Connect4State.cs" />
+    <Compile Include="Player\HumanPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Player\" />
+    <ProjectReference Include="..\GameComponent\GameComponent.csproj">
+      <Project>{2A117E92-4B9A-42DD-B65E-941587209ABA}</Project>
+      <Name>GameComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiniMaxSolver\GameSolver.csproj">
+      <Project>{53911A4D-7E5B-473A-8720-D8F19D3B59D1}</Project>
+      <Name>GameSolver</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

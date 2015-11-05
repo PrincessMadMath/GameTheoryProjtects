@@ -51,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Connect4\Connect4.csproj">
+      <Project>{D29DA6D5-B4B5-48C6-B499-13F7E30D549C}</Project>
+      <Name>Connect4</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameComponent\GameComponent.csproj">
       <Project>{2A117E92-4B9A-42DD-B65E-941587209ABA}</Project>
       <Name>GameComponent</Name>

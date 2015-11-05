@@ -8,7 +8,7 @@ namespace GameSolver.Algo
     {
         public int CalculateNodeValue(Node root, ITeamIdentifier player, ITeamIdentifier opponentPlayer, bool isAdversaryTurn, int depth)
         {
-            return AlphaBetaAlgo(root, player, opponentPlayer, Int32.MinValue, Int32.MaxValue, true);
+            return AlphaBetaAlgo(root, player, opponentPlayer, Int32.MinValue, Int32.MaxValue, true, depth);
         }
 
         /// <summary>
@@ -21,21 +21,22 @@ namespace GameSolver.Algo
         /// <param name="beta">Best already explored option along path to the root for the minimizer</param>
         /// <param name="isAdversaryTurn"></param>
         /// <returns></returns>
-        private int AlphaBetaAlgo(Node root, ITeamIdentifier player, ITeamIdentifier opponentPlayer, int alpha, int beta, bool isAdversaryTurn)
+        private int AlphaBetaAlgo(Node root, ITeamIdentifier player, ITeamIdentifier opponentPlayer, int alpha, int beta, bool isAdversaryTurn, int depth)
         {
             ITeamIdentifier playingPlayer = isAdversaryTurn ? opponentPlayer : player;
             ITeamIdentifier otherPlayer = !isAdversaryTurn ? opponentPlayer : player;
             Helper.PopulateTree(root, playingPlayer, otherPlayer, 1);
-            if (root.Combinaison.NextResolvableState.IsGameOver() || !root.ChildrenNodes.Any())
+            if (root.Combinaison.NextResolvableState.IsGameOver() || !root.ChildrenNodes.Any() || depth == 0)
             {
                 return root.Combinaison.NextResolvableState.GetValueFor(player);
             }
+            --depth;
 
             int bestCurrentValueForCurrentPlayerTurn = isAdversaryTurn ? int.MaxValue : int.MinValue;
 
             foreach (var node in root.ChildrenNodes)
             {
-                int nodeValue = AlphaBetaAlgo(node, player, opponentPlayer, alpha, beta, !isAdversaryTurn);
+                int nodeValue = AlphaBetaAlgo(node, player, opponentPlayer, alpha, beta, !isAdversaryTurn, depth);
 
                 // Minimizer
                 if (isAdversaryTurn)
